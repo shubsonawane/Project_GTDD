@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Guru99 Banking Project">
+	<test name="Guru99 Application Test Cases">
+		<classes>
+			<class name = "com.guru99.tests.loginTest.LoginTest"></class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
