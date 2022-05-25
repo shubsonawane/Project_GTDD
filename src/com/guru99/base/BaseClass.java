@@ -19,12 +19,13 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static Properties prop;
 
-	public BaseClass() {
+	public BaseClass(String filepath) {
 
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(
-					System.getProperty("user.dir") + "\\src\\com\\guru99\\config\\config.properties");
+			FileInputStream ip = new FileInputStream(System.getProperty("user.dir") + filepath);
+			// FileInputStream ip = new FileInputStream(System.getProperty("user.dir") +
+			// "\\src\\com\\guru99\\config\\config.properties");
 			prop.load(ip);
 
 		} catch (FileNotFoundException e) {
@@ -45,7 +46,8 @@ public class BaseClass {
 			driver = new ChromeDriver();
 
 		} else if (browserName.equalsIgnoreCase("firefox")) {
-			//System.setProperty("webdriver.gecko.driver", "E:\\Webdrivers\\geckodriver.exe");
+			// System.setProperty("webdriver.gecko.driver",
+			// "E:\\Webdrivers\\geckodriver.exe");
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
@@ -58,4 +60,8 @@ public class BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
+	public static WebDriver getDriver() {
+
+		return driver;
+	}
 }

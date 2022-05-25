@@ -16,7 +16,9 @@ import org.openqa.selenium.WebDriver;
 
 import com.guru99.base.BaseClass;
 
-public class TestUtil extends BaseClass {
+public class TestUtil {
+	
+	WebDriver driver = BaseClass.getDriver();
 
 	public static long PAGE_LOAD_TIMEOUT = 60;
 	public static long IMPLICIT_WAIT = 60;
@@ -58,6 +60,7 @@ public class TestUtil extends BaseClass {
 			//TakesScreenshot ts = (TakesScreenshot) driver;
 			//File source = ts.getScreenshotAs(OutputType.FILE);
 			File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
 			FileUtils.copyFile(source, new File(
 					"C:\\Users\\91820\\eclipse-workspace\\Guru99DemoProject\\Screenshots\\" + fileName + ".png"));
 		} catch (IOException e) {
